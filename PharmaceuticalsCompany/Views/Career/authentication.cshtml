@@ -1,0 +1,416 @@
+﻿@model PharmaceuticalsCompany.Models.Career.CareerModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+
+<link rel="stylesheet" type="text/css" href="~/css/KimDat/Career - Copy.css">
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<div class="page-content">
+    <div class="form-v8-content">
+        <div class=" form-left">
+            <img src="~/images/1.jpg">
+        </div>
+        <div class="form-right">
+            <div class="tab">
+                <div class="tab-inner">
+                    <button class="tablinks" onclick="openCity(event, 'sign-up')" id="defaultOpen">Sign Up</button>
+                </div>
+                <div class="tab-inner">
+                    <button class="tablinks" onclick="openCity(event, 'sign-in')">Sign In</button>
+                </div>
+            </div>
+
+            <div class="tabcontent" id="sign-up">
+                @using (Html.BeginForm("login", "Career"))
+                {
+                    <div class="content">
+                        <div class="form-group">
+                            <i class="fa fa-envelope"></i>
+                            <label>Email:</label>
+                            <input type="text" class="form-control" name="Email">
+                            @Html.ValidationMessageFor(x => x.Email)
+                        </div>
+                        <div class="form-group">
+                            <i class="fas fa-key"></i>
+                            <label>PassWord:</label>
+                            <input type="text" class="form-control" name="PassWord">
+                            @Html.ValidationMessageFor(x => x.PassWord)
+                        </div>
+                    </div>
+                    <input type="submit" class="btn btn-primary" style="margin-left:20px;width:95%;margin-bottom:10px" value="Submit" />
+                }
+            </div>
+
+
+
+
+            <div class="tabcontent" id="sign-in">
+                @using (Html.BeginForm("register", "Career", FormMethod.Post, new { enctype = "multipart/form-data", id = "register" }))
+                {
+                    <ul class="progressbar">
+                        <li onclick="equalize()" class="active" id="p1" data-target="#myCarousel" data-slide-to="0">Step 1</li>
+                        <li onclick="equalize()" id="p2" data-target="#myCarousel" data-slide-to="1">Step 2</li>
+                        <li onclick="equalize()" data-target="#myCarousel" id="p3" data-slide-to="2">Step 3</li>
+
+                    </ul>
+                    <div class="clearfix"></div>
+
+
+                    <div class="content carousel slide " id="myCarousel" data-interval="false" data-ride="carousel">
+
+
+                        <div class="carousel-inner">
+                            <div class="item active" id="1">
+                                <div class="form-group">
+                                    <i class="fa fa-envelope"></i>
+                                    <label>Email:</label>
+                                    <input type="text" class="form-control" name="Email">
+                                </div>
+                                <div class="form-group">
+                                    <i class="fas fa-key"></i>
+                                    <label>PassWord:</label>
+                                    <input type="text" class="form-control" name="PassWord">
+                                </div>
+                                <div class="form-group">
+                                    <i class="fas fa-key"></i>
+                                    <label>ConfirmPassWord:</label>
+                                    <input type="text" class="form-control" name="ConfirmPassWord">
+                                </div>
+                                <div class="form-group">
+                                    <i class="fas fa-key"></i>
+                                    <label>FullName:</label>
+                                    <input type="text" class="form-control" name="FullName">
+                                </div>
+                                <div class="form-group">
+                                    <i class="fas fa-key"></i>
+                                    <label>Address:</label>
+                                    <input type="text" class="form-control" name="Address">
+                                </div>
+                                <div class="form-group">
+                                    <i class="fas fa-key"></i>
+                                    <label>Phone:</label>
+                                    <input type="text" class="form-control" name="Phone">
+                                </div>
+                                <div class="form-group">
+                                    <i class="fas fa-key"></i>
+                                    <label>Date Of Birth:</label>
+                                    <input type="date" style="width:97%" class="form-control" name="DateOfBirth">
+                                </div>
+                                <div class="form-group">
+                                    <i class="fas fa-key"></i>
+                                    <label>Gender:</label>
+                                    <input type="hidden" value="male" name="Gender" />
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="Gender[]" id="exampleRadios1" value="male" checked>
+                                        <label style="margin-left:15px" class="form-check-label" for="exampleRadios1">
+                                            Male
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="Gender[]" id="exampleRadios2" value="female">
+                                        <label style="margin-left:15px" class="form-check-label" for="exampleRadios2">
+                                            Female
+                                        </label>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="form-group">
+                                    <i class="fas fa-key"></i>
+                                    <label>Photo:</label>
+                                    <input type="file" class="form-control" name="fileUser">
+                                </div>
+                            </div>
+                            <div class="item " id="2" style="margin-bottom:20px">
+                                <div id="booking">
+                                    <div class="row">
+                                        <fieldset class="booking-form">
+
+                                            <legend class="form-header">
+
+                                                School
+                                                <button type="button" class="btn btn-danger" >Remove</button>
+                                            </legend>
+
+                                            <div class="row no-margin">
+                                                <div class="col-md-6">
+                                                    <div class="form-group separator">
+                                                        <span class="form-label">Name_school</span>
+                                                        <input class="form-control " type="text" name="[0].Name_school">
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <span class="form-label">Location</span>
+                                                        <input class="form-control" type="text" name="[0].Location">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row no-margin">
+                                                <div class="col-md-6">
+                                                    <div class="form-group separator">
+                                                        <span class="form-label">Join Date</span>
+                                                        <input type="hidden" name="[0].JoinDate" class="JoinDate">
+                                                        <input class="form-control chooseJoin" type="date" min="1951-01-01" max="date" name="[0].chooseJoin">
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <span class="form-label">End Date</span>
+                                                        <input type="hidden" name="[0].EndDate" class="EndDate">
+                                                        <input class="chooseEnd form-control" type="date" name="[0].chooseEnd">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <div id="booking">
+                                    <div class="row">
+                                        <fieldset class="booking-form">
+
+                                            <legend class="form-header">
+
+                                                School
+                                                <button type="button" class="btn btn-danger">Remove</button>
+                                            </legend>
+
+                                            <div class="row no-margin">
+                                                <div class="col-md-6">
+                                                    <div class="form-group separator">
+                                                        <span class="form-label">Name_school</span>
+                                                        <input class="form-control " type="text" name="[1].Name_school">
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <span class="form-label">Location</span>
+                                                        <input class="form-control" type="text" name="[1].Location">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row no-margin">
+                                                <div class="col-md-6">
+                                                    <div class="form-group separator">
+                                                        <span class="form-label">Join Date</span>
+                                                        <input type="hidden" name="[1].JoinDate" class="JoinDate">
+                                                        <input class="form-control chooseJoin" type="date" min="1951-01-01" max="date" name="[1].chooseJoin">
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <span class="form-label">End Date</span>
+                                                        <input type="hidden" name="[1].EndDate" class="EndDate">
+                                                        <input class="chooseEnd form-control" type="date" name="[1].chooseEnd">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="new">
+                                    <a onclick='newwin()' style="margin-left:20px;margin-top:20px"> + Add New School</a>
+                                </div>
+
+                            </div>
+                               
+
+                           
+
+                            <div class="item" id="3">
+
+
+                                <div class="frame">
+                                    <div class="center">
+                                        <div class="bar"></div>
+                                        <div class="title">Drop file to upload</div>
+                                        <div class="dropzone">
+                                            <div class="content">
+                                                <img src="https://100dayscss.com/codepen/upload.svg" class="upload">
+                                                <span class="filename"></span>
+                                                <input type="file" name="file" class="input">
+                                            </div>
+                                        </div>
+                                        <img src="https://100dayscss.com/codepen/syncing.svg" class="syncing">
+                                        <img src="https://100dayscss.com/codepen/checkmark.svg" class="done">
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div style="float:right;margin-right:20px" class="nextpre">
+
+                        <a onclick="equalize()" style="visibility:hidden" id="prev" href="#myCarousel" data-slide="prev">
+                            Previous
+                        </a>
+                        <a onclick="equalize()" id="next" href="#myCarousel" data-slide="next">
+                            Next
+
+                        </a>
+
+                    </div>
+                }
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $('input[name="Gender[]').change(function () {
+
+        var atLeastOneIsChecked = $('input[name="Gender[]"]:checked');
+        $('input[name="Gender').val(atLeastOneIsChecked.val());
+
+    });
+    function newwin() {
+        alert("123");
+
+        element.parentNode.removeChild(element);
+        $(".school").append("<p>Test</p>");
+
+    }
+    function myFunction() {
+        document.getElementById('register').submit();
+
+    }
+
+
+    function equalize() {
+        //var currentactive = $('.active').attr("id");
+        //      alert(currentactive.text());
+
+
+        $('.carousel').on('slide.bs.carousel', function onSlide(ev) {
+            var id = ev.relatedTarget.id;
+
+            switch (id) {
+                case "1":
+                    $("#p1").removeClass('complete').addClass('active');
+                    $("#p2").removeClass('complete').removeClass('active');
+                    $("#p3").removeClass('complete').removeClass('active');
+                    $("#prev").css('visibility', 'hidden');
+                    $("#next").text("next");
+                    $("#next").attr("data-slide", "next");
+                    $("#next").removeAttr('onclick');
+                    break;
+                case "2":
+                    $("#p1").removeClass('active').addClass('complete');
+                    $("#p2").removeClass('complete').addClass('active');
+                    $("#p3").removeClass('complete').removeClass('active');
+                    $("#prev").css('visibility', 'visible');
+                    $("#next").text("next");
+                    $("#next").attr("data-slide", "next");
+                    $("#next").removeAttr('onclick');
+                    break;
+                case "3":
+                    $("#p1").removeClass('active').addClass('complete');
+                    $("#p2").removeClass('active').addClass('complete');
+                    $("#p3").removeClass('complete').addClass('active');
+                    $("#prev").css('visibility', 'visible');
+                    $("#next").text("submit");
+                    $("#next").removeAttr("data-slide");
+                    $("#next").attr('onclick', "myFunction()");
+                    break;
+                default:
+                //the id is none of the above
+            }
+        })
+
+
+    }
+    function openCity(evt, cityName) {
+
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+
+    }
+
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+</script>
+
+<script>
+    var droppedFiles = false;
+    var fileName = '';
+    var $dropzone = $('.dropzone');
+    var $button = $('.upload-btn');
+    var uploading = false;
+    var $syncing = $('.syncing');
+    var $done = $('.done');
+    var $bar = $('.bar');
+    var timeOut;
+
+    $dropzone.on('drag dragstart dragend dragover dragenter dragleave drop', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+    })
+        .on('dragover dragenter', function () {
+            $dropzone.addClass('is-dragover');
+        })
+        .on('dragleave dragend drop', function () {
+            $dropzone.removeClass('is-dragover');
+        })
+        .on('drop', function (e) {
+            droppedFiles = e.originalEvent.dataTransfer.files;
+            fileName = droppedFiles[0]['name'];
+            $('.filename').html(fileName);
+            $('.dropzone .upload').hide();
+        });
+
+    $button.bind('click', function () {
+        startUpload();
+    });
+
+    $("input[name='file']").change(function () {
+        fileName = $(this)[0].files[0].name;
+        $('.filename').html(fileName);
+        $('.dropzone .upload').hide();
+    });
+
+    function startUpload() {
+        if (!uploading && fileName != '') {
+            uploading = true;
+            $button.html('Uploading...');
+            $dropzone.fadeOut();
+            $syncing.addClass('active');
+            $done.addClass('active');
+            $bar.addClass('active');
+            timeoutID = window.setTimeout(showDone, 3200);
+        }
+    }
+
+    function showDone() {
+        $button.html('Done');
+    }
+</script>
