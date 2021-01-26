@@ -1,0 +1,45 @@
+﻿.headerProfile {
+    height: 2px;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    /* Set the hr color */
+    color: #333; /* old IE */
+    background-color: #333; /* Modern Browsers */
+}
+
+.personalDetail h1 {
+    margin-left: 20px;
+}
+
+.personalDetail form-group {
+    width: 90%;
+}
+
+.sendmail .modal-header {
+    background-color: black;
+    width: 100%;
+    height: 50px;
+    padding-bottom: 10px;
+}
+
+.sendmail .close {
+    margin-top: -20px;
+}
+
+.sendmail .modal-title, .sendmail .close {
+    color: white;
+}
+
+.sendmail .email {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
+}
+
+.sendmail textarea {
+    height: 150px;
+}

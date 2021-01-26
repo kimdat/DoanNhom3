@@ -1,0 +1,139 @@
+﻿<link rel="stylesheet" type="text/css" href="~/css/KimDat/AdminCareer.css">
+@model IEnumerable<PharmaceuticalsCompany.Models.Career.ApplicationUser>
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+}
+@if (Model.Any())
+{
+    <section class="content">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+
+
+                    <div class="card-header">
+                        List USER
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="product" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Full Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+
+
+                                    <th>DateOfBirth</th>
+                                    <th>Gender</th>
+                                    <th>Details</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.FullName</td>
+                                        <td><a data-toggle="modal" onclick="sendmail('@item.Email','@item.FullName')" data-target="#myModal" style="color:blue">@item.Email</a></td>
+                                        <td>@item.PhoneNumber</td>
+
+
+                                        <td>@Convert.ToString(string.Format("{0:dd/MM/yyyy}", @item.DateOfBirth))</td>
+                                        @if (item.Gender == true)
+                                        {
+                                            <td>Male</td>
+                                        }
+                                        else
+                                        {
+                                            <td>Female</td>
+                                        }
+                                        <td>
+                                            <a  href="Career/Profile/@item.Id">Details </a>
+
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+
+                            <tfoot>
+
+                                <tr>
+                                    <th>Full Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+
+
+                                    <th>DateOfBirth</th>
+                                    <th>Gender</th>
+                                    <th>Details</th>
+
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+
+
+    <!-- Modal -->
+    <div class="modal fade sendmail" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <h4 class="modal-title">New Message</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form asp-controller="AdminCareer" asp-action="SendMail" method="post">
+                        <input type="hidden"  name="ReceiveName" />
+                        <div class="form-group email">
+                            <label for="" style="margin-right:35px">To:</label>
+                            <input readonly" name="To" class="form-control">
+                        </div>
+                        <div class="form-group  email">
+                            <label for="">Subject:</label>
+                            <input type="text" class="form-control" name="Subject">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Message:</label>
+
+                            <textarea class="form-control" name="Message"></textarea>
+                        </div>
+                        <div class="form-group">
+
+                            <button type="submit" style="width:100%" class="btn btn-primary"> Send </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+}
+<script src="~/js/Kimdat/jquery-3.2.1.min.js"></script>
+<script src="~/js/Kimdat/main - Copy.js"></script>
+
+<script>
+
+    function sendmail(to,name)
+    {
+        $("input[name='To']").val(to);
+        $("input[name='ReceiveName']").val(name);
+    }
+</script>

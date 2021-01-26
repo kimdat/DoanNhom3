@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
@@ -10,11 +10,17 @@
     <Compile Remove="Data\Migrations\20210124042121_Extend_IdentityUser.Designer.cs" />
     <Compile Remove="Data\Migrations\20210125051608_Extend_IdentityUser.cs" />
     <Compile Remove="Data\Migrations\20210125051608_Extend_IdentityUser.Designer.cs" />
+    <Compile Remove="Data\Migrations\20210125054947_Extend_IdentityUser.cs" />
+    <Compile Remove="Data\Migrations\20210125054947_Extend_IdentityUser.Designer.cs" />
+    <Compile Remove="Data\Migrations\20210126105107_EducationDetails.cs" />
+    <Compile Remove="Data\Migrations\20210126105107_EducationDetails.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MailKit" Version="2.10.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />
   </ItemGroup>
 
 </Project>

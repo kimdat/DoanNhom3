@@ -1,0 +1,212 @@
+﻿@model PharmaceuticalsCompany.Models.Career.ApplicationUser
+@{
+    ViewData["Title"] = "Profile";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+}
+
+
+<link rel="stylesheet" type="text/css" href="~/css/KimDat/AdminCareer.css">
+<link rel="stylesheet" type="text/css" href="~/css/KimDat/IndexCareer.css">
+
+
+
+<h1 style="text-align:center;margin-top:20px;border: dashed #b1154a;margin-bottom:20px"> Details about  @Model.Email</h1>
+
+<div class="personalDetail">
+    <h1 class="headerProfile">Personal Details</h1>
+    <hr />
+    <div class="row">
+        <div class="col-md-2" style="padding-left:30px">
+            <img src="/@Model.Photo"/ style="width:90%;height:200px" >
+        </div>
+        <div class="col-md-10">
+            <div>
+
+                <div class="form-group">
+                    <label for="txt-name">FullName</label>
+                    <input type="text" class="form-control" readonly value="@Model.FullName">
+                </div>
+
+            </div>
+            <div>
+
+                <div class="form-group">
+                    <label for="txt-name">Address</label>
+                    <input type="text" class="form-control" readonly value="@Model.Address">
+                </div>
+
+            </div>
+            <div>
+
+                <div class="form-group">
+                    <label for="txt-name">Phone</label>
+                    <input type="text" class="form-control" readonly value="@Model.PhoneNumber">
+                </div>
+
+            </div>
+            <div>
+
+                <div class="form-group">
+                    <label for="txt-name">DateOfBirth</label>
+                    <input type="text" class="form-control" readonly value="@Model.FullName">
+                </div>
+
+            </div>
+            <div>
+                @if (Model.Gender == true)
+                {
+                    <div class="form-group">
+                        <label for="txt-name">Gender</label>
+                        <input type="text" class="form-control" readonly value="Male">
+                    </div>
+                }
+
+                else
+                {
+                    <div class="form-group">
+                        <label for="txt-name">Gender</label>
+                        <input type="text" class="form-control" readonly value="Female">
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<div class="personalDetail">
+    <h1 class="headerProfile">Education Details</h1>
+    <hr style=" margin-bottom: -20px" />
+  
+        <input type="hidden" name="Id" value="@Model.Id" />
+        @for (int i = 0; i < ViewBag.Education.Count; i++)
+        {
+            <div class="booking">
+
+                <div class="section-center">
+                    <div class="container">
+                        <div class="row">
+
+                            <fieldset class="booking-form">
+
+                                <legend class="form-header">
+
+                                    School
+
+                                </legend>
+                                <input class="form-control " type="hidden" value="@ViewBag.Education[i].Id" name="[@i].Id">
+                                <div class="row no-margin">
+                                    <div class="col-md-6">
+                                        <div class="form-group separator">
+                                            <span class="form-label">Name_school</span>
+                                            <input class="form-control"  readonly  type="text" value="@ViewBag.Education[i].Name_school" name="[@i].Name_school">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <span class="form-label">Location</span>
+                                            <input class="form-control" readonly type="text" value="@ViewBag.Education[i].Location" name="[@i].Location">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row no-margin">
+                                    <div class="col-md-6">
+                                        <div class="form-group separator">
+                                            <span class="form-label">Join Date</span>
+                                            <input type="hidden" value="@ViewBag.Education[i].JoinDate" name="[@i].JoinDate" class="JoinDate">
+                                            <input class="form-control chooseJoin"  readonly  type="date" min="1951-01-01" max="date" name="[@i].chooseJoin">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <span class="form-label">End Date</span>
+                                            <input type="hidden" value="@ViewBag.Education[i].EndDate" name="[@i].EndDate" class="EndDate">
+                                            <input class="chooseEnd form-control"  readonly  type="date" name="[@i].chooseEnd">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        <br />
+
+
+  
+</div>
+<div class="personalDetail">
+    <h1 class="headerProfile">Resume</h1>
+    <hr />
+  
+
+        <div class="frame" style="height:480px;width:100%">
+
+
+            <input type="hidden" name="Resume" value="@Model.Resume" />
+            <embed id="embPDF" src="~/files/@Model.Resume" style="width:100%;height:350px" />
+            <a href="../PDFViewerNewTab?fileName=@Model.Resume" style="color:white;font-size:28px" target="_blank">click to watch   resume on new tab</a>
+
+
+
+        </div>
+
+  
+</div>
+<script src="~/js/Kimdat/jquery-3.2.1.min.js"></script>
+<script src="~/js/Kimdat/main - Copy.js"></script>
+
+<script>
+    $(document).ready(function () {
+
+
+        $('.JoinDate').each(function () {
+
+            var a = $(this).parent().find(".chooseJoin");
+            var b = $(this).val();
+            b = b.split(" ")[0];
+            b = new Date(b);
+
+            var month = b.getMonth() + 1;
+            var year = b.getFullYear();
+
+            var day = b.getDate();
+
+            if (day < 10)
+                day = "0" + day;
+            if (month < 10)
+                month = "0" + month;
+            var date = year + "-" + month + "-" + day;
+
+            a.val(date);
+        })
+        $('.EndDate').each(function () {
+
+            var a = $(this).parent().find(".chooseEnd");
+            var b = $(this).val();
+            b = b.split(" ")[0];
+            b = new Date(b);
+
+            var month = b.getMonth() + 1;
+            var year = b.getFullYear();
+
+            var day = b.getDate();
+
+            if (day < 10)
+                day = "0" + day;
+            if (month < 10)
+                month = "0" + month;
+            var date = year + "-" + month + "-" + day;
+
+            a.val(date);
+        })
+
+
+
+    });
+
+</script>

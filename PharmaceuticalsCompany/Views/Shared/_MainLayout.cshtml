@@ -25,30 +25,8 @@
     <link rel="stylesheet" type="text/css" href="~/Asset/css/styles.css">
 
 </head>
-@using Microsoft.AspNetCore.Identity
-
-@inject SignInManager<PharmaceuticalsCompany.Models.Career.ApplicationUser> SignInManager
-@inject UserManager<PharmaceuticalsCompany.Models.Career.ApplicationUser> UserManager
-
-
 <body>
-    @if (SignInManager.IsSignedIn(User))
-    {
-        @using (Html.BeginForm("Logout", "Career", FormMethod.Post))
-        {
-            <ul class="nav navbar-nav navbar-right">
-            
-                <li>
-                    <button type="submit" class="btn btn-link navbar-btn navbar-link">Logout</button>
-                </li>
-            </ul>
-        }
-    }
-    else
-    {
-     
-    }
-    <div class="container-flui">
+    <div class="container-fluid">
 
 
         <div class="hidden-xs hidden-sm nav-top bg-primary py-2">
@@ -113,65 +91,58 @@
                     <!--Note: declare the Menu style in the data-menu-style="horizontal" (options: horizontal, vertical, accordion) -->
                     <ul id="respMenu" class="ace-responsive-menu" data-menu-style="horizontal">
                         <li>
-                            <a href="index.html" class="active">
-                                <span class="title">Home</span>
+                            <a asp-action="Index" asp-controller="Home" class="active">
+                                <span class="title">Home Page</span>
                             </a>
                         </li>
                         <li>
-                            <a href="about.html">
-                                <span class="title">About Us</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="services.html">
-                                <span class="title">Services</span>
+                            <a asp-action="About" asp-controller="Home">
+                                <span class="title" asp-action="About">About Us</span>
                             </a>
                         </li>
 
+
                         <li>
                             <a href="javascript:;">
-                                <span class="title">Pages</span>
+                                <span class="title">Product</span>
                                 <span class="arrow"></span>
                             </a>
                             <!-- Level Two-->
                             <ul class="sub-menu" style="display: none;">
                                 <li>
-                                    <a href="pricing.html">
-                                        <span class="title">Pricing</span>
+                                    <a asp-action="Product_Capsule" asp-controller="Home">
+                                        <span class="title">Capsule/ Encapsulation</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="portfolio.html">
-                                        <span class="title">Portfolio</span>
+                                    <a asp-action="Product_Tablet" asp-controller="Home">
+                                        <span class="title">Tablet</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="error.html">
-                                        <span class="title">404 Page</span>
+                                    <a asp-action="Product_Liquid" asp-controller="Home">
+                                        <span class="title">Liquid Filling</span>
                                     </a>
                                 </li>
                             </ul>
                         </li>
-                        <li>
-                            <a href="javascript:;">
-                                <span class="title">Blog</span>
-                                <span class="arrow"></span>
-                            </a>
-                            <!-- Level Two-->
-                            <ul class="sub-menu" style="display: none;">
-                                <li>
-                                    <a href="blog.html">Blog</a>
-                                </li>
-                                <li>
-                                    <a href="blog-single-post.html">Blog Single</a>
-                                </li>
-                            </ul>
-                        </li>
+
                         <li class="last ">
-                            <a href="contact.html">
+                            <a asp-action="Contact" asp-controller="Home">
                                 <span class="title">Contact Us</span>
                             </a>
                         </li>
+                        <li class="last ">
+                            <a asp-action="Quote_Us" asp-controller="Home">
+                                <span class="title">Quote us</span>
+                            </a>
+                        </li>
+                        <li class="last ">
+                            <a asp-action="authentication" asp-controller="Career">
+                                <span class="title">Career</span>
+                            </a>
+                        </li>
+
                     </ul>
                 </nav>
             </div>
@@ -250,6 +221,7 @@
     <script src="~/Asset/vendors/popper.min.js"></script>
     <script src="~/Asset/vendors/bootstrap/js/bootstrap.min.js"></script>
     <script src="~/Asset/vendors/aos/aos.js"></script>
+
     <!-- Components Vendor  -->
     <script src="~/Asset/vendors/slick-carousel/slick.min.js"></script>
     <script src="~/Asset/vendors/ace-responsive-menu/ace-responsive-menu.js"></script>

@@ -223,15 +223,30 @@ namespace PharmaceuticalsCompany.Services.Career
 
         public async Task<bool> EditEducationDetails(IEnumerable<EducationDetails> educationDetails)
         {
+            var user_id = _um.GetUserId(_httpContextAccessor.HttpContext.User);
+            var list = context.EducationDetails.Where(e => e.User_id == user_id);
+            foreach (var item in  list)
+            {
+                context.EducationDetails.Remove(item);
+            }
+            
             foreach (var NewEducationDetail in educationDetails)
             {
-                var educationDetail = context.EducationDetails.Find(NewEducationDetail.Id);
-                educationDetail.Name_school = NewEducationDetail.Name_school;
-                educationDetail.Location = NewEducationDetail.Location;
-                educationDetail.JoinDate = NewEducationDetail.JoinDate;
-                educationDetail.EndDate = NewEducationDetail.EndDate;
-                context.SaveChanges();
+               /* var educationDetail = context.EducationDetails.Find(NewEducationDetail.Id);
+                if(educationDetail!=null)
+                {
+                    educationDetail.Name_school = NewEducationDetail.Name_school;
+                    educationDetail.Location = NewEducationDetail.Location;
+                    educationDetail.JoinDate = NewEducationDetail.JoinDate;
+                    educationDetail.EndDate = NewEducationDetail.EndDate;
+
+                }*/
+                NewEducationDetail.User_id = user_id;
+                context.EducationDetails.Add(NewEducationDetail);
+             
+              
             }
+            context.SaveChanges();
             return true;
         }
 

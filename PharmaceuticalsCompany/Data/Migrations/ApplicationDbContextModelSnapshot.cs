@@ -199,8 +199,6 @@ namespace PharmaceuticalsCompany.Data.Migrations
 
                     b.Property<string>("Name_school");
 
-                    b.Property<int>("Order");
-
                     b.Property<string>("User_id");
 
                     b.HasKey("Id");
@@ -208,6 +206,132 @@ namespace PharmaceuticalsCompany.Data.Migrations
                     b.HasIndex("User_id");
 
                     b.ToTable("EducationDetails");
+                });
+
+            modelBuilder.Entity("PharmaceuticalsCompany.Models.Career.QuoteUs", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Address");
+
+                    b.Property<string>("City");
+
+                    b.Property<string>("Comments");
+
+                    b.Property<string>("CompanyName");
+
+                    b.Property<string>("Country");
+
+                    b.Property<string>("FullName");
+
+                    b.Property<int>("Phone");
+
+                    b.Property<int>("PostalCode");
+
+                    b.Property<string>("State");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("QuoteUs");
+                });
+
+            modelBuilder.Entity("PharmaceuticalsCompany.Models.ContactUs", b =>
+                {
+                    b.Property<int>("CId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CName");
+
+                    b.Property<int>("CPhone");
+
+                    b.Property<string>("FeedBack");
+
+                    b.HasKey("CId");
+
+                    b.ToTable("ContactUs");
+                });
+
+            modelBuilder.Entity("PharmaceuticalsCompany.Models.Products.ProductCapsule", b =>
+                {
+                    b.Property<int>("CapId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CapName")
+                        .IsRequired();
+
+                    b.Property<float>("CapSize");
+
+                    b.Property<float>("Machine_Dimension");
+
+                    b.Property<float>("Ouput");
+
+                    b.Property<float>("Shipping");
+
+                    b.Property<string>("photo");
+
+                    b.HasKey("CapId");
+
+                    b.ToTable("ProductCapsules");
+                });
+
+            modelBuilder.Entity("PharmaceuticalsCompany.Models.Products.ProductLiquidFilling", b =>
+                {
+                    b.Property<int>("LFId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AirPressure");
+
+                    b.Property<float>("Air_Volume");
+
+                    b.Property<string>("AriPhoto");
+
+                    b.Property<float>("FillingRange");
+
+                    b.Property<string>("FillingSpeed");
+
+                    b.Property<string>("LFName")
+                        .IsRequired();
+
+                    b.HasKey("LFId");
+
+                    b.ToTable("ProductLiquidFillings");
+                });
+
+            modelBuilder.Entity("PharmaceuticalsCompany.Models.Products.ProductTablet", b =>
+                {
+                    b.Property<int>("TabId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Dies");
+
+                    b.Property<float>("MachineSize");
+
+                    b.Property<float>("MaxDept");
+
+                    b.Property<float>("MaxDiameter");
+
+                    b.Property<float>("MaxPressure");
+
+                    b.Property<int>("Model_Number");
+
+                    b.Property<float>("NetWeight");
+
+                    b.Property<string>("ProductCapacity");
+
+                    b.Property<string>("TabName")
+                        .IsRequired();
+
+                    b.Property<string>("TabPhoto");
+
+                    b.HasKey("TabId");
+
+                    b.ToTable("ProductTablets");
                 });
 
             modelBuilder.Entity("PharmaceuticalsCompany.Models.Career.ApplicationUser", b =>

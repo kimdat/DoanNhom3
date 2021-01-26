@@ -23,10 +23,11 @@ namespace PharmaceuticalsCompany.Controllers.Candidate
             _hostingEnvironment = hostingEnvironment;
             this.services = services;
         }
+       
         public async Task<IActionResult> Index()
         {
             if (!User.Identity.IsAuthenticated)
-                return RedirectToAction("authentication");
+                return RedirectToAction("Authentication");
             else
 
             {
@@ -39,7 +40,7 @@ namespace PharmaceuticalsCompany.Controllers.Candidate
         }
         public IActionResult Authentication()
         {
-            if (User.Identity.IsAuthenticated)
+            if (!User.Identity.IsAuthenticated)
                 return RedirectToAction("index");
             else
 
@@ -169,6 +170,7 @@ namespace PharmaceuticalsCompany.Controllers.Candidate
         {
             return View();
         }
+      
         [HttpPost]
         public async Task<IActionResult> ChangePass(ChangePassWordViewModel model)
         {
@@ -179,6 +181,7 @@ namespace PharmaceuticalsCompany.Controllers.Candidate
                 return RedirectToAction("index", "Career");
             return View();
         }
+      
         [HttpPost]
         public async Task<IActionResult> EditProfile(CareerModel career, IFormFile fileUser,string Gender)
         {

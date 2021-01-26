@@ -8,6 +8,8 @@ namespace PharmaceuticalsCompany.Services.ManageCareer
 {
     public interface IManageCareer
     {
-        Task<ApplicationUser> GetUser(string iD);
-    }
+        IEnumerable<ApplicationUser> GetAllUser();
+        ApplicationUser GetUser(string id);
+        IEnumerable<EducationDetails> getEducation(string id);
+    } 
 }

@@ -21,15 +21,38 @@ namespace PharmaceuticalsCompany.Services.ManageCareer
             _um = um;
 
         }
-        public async Task<ApplicationUser> GetUser(string id)
+
+        public  IEnumerable<ApplicationUser> GetAllUser()
         {
            
-            ApplicationUser user = _um.FindByIdAsync(id).Result;
-            if (user != null)
-                return  user;
 
-            else
-                return null;
+            return _um.Users;
+
         }
+
+        public  ApplicationUser GetUser(string id)
+        {
+
+            ApplicationUser user = _um.FindByIdAsync(id).Result;
+            return user;
+        }
+
+        public IEnumerable<EducationDetails> getEducation(string id)
+        {
+      
+            return context.EducationDetails.Where(e => e.User_id == id).ToList();
+        }
+
+        /*
+public async Task<CareerModel> GetUser(string id)
+{
+
+   ApplicationUser user = _um.FindByIdAsync(id).Result;
+   if (user != null)
+       return  user;
+
+   else
+       return null;
+}*/
     }
 }

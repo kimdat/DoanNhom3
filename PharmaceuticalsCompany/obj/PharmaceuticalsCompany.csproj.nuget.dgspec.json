@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Fptaptech\\DoanB\\PharmaceuticalsCompany\\PharmaceuticalsCompany\\PharmaceuticalsCompany.csproj": {}
+    "C:\\Fptaptech\\DoanB\\DoanNhom3\\PharmaceuticalsCompany\\PharmaceuticalsCompany.csproj": {}
   },
   "projects": {
-    "C:\\Fptaptech\\DoanB\\PharmaceuticalsCompany\\PharmaceuticalsCompany\\PharmaceuticalsCompany.csproj": {
+    "C:\\Fptaptech\\DoanB\\DoanNhom3\\PharmaceuticalsCompany\\PharmaceuticalsCompany.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Fptaptech\\DoanB\\PharmaceuticalsCompany\\PharmaceuticalsCompany\\PharmaceuticalsCompany.csproj",
+        "projectUniqueName": "C:\\Fptaptech\\DoanB\\DoanNhom3\\PharmaceuticalsCompany\\PharmaceuticalsCompany.csproj",
         "projectName": "PharmaceuticalsCompany",
-        "projectPath": "C:\\Fptaptech\\DoanB\\PharmaceuticalsCompany\\PharmaceuticalsCompany\\PharmaceuticalsCompany.csproj",
+        "projectPath": "C:\\Fptaptech\\DoanB\\DoanNhom3\\PharmaceuticalsCompany\\PharmaceuticalsCompany.csproj",
         "packagesPath": "C:\\Users\\nghia\\.nuget\\packages\\",
-        "outputPath": "C:\\Fptaptech\\DoanB\\PharmaceuticalsCompany\\PharmaceuticalsCompany\\obj\\",
+        "outputPath": "C:\\Fptaptech\\DoanB\\DoanNhom3\\PharmaceuticalsCompany\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -43,6 +43,10 @@
         "netcoreapp2.1": {
           "targetAlias": "netcoreapp2.1",
           "dependencies": {
+            "MailKit": {
+              "target": "Package",
+              "version": "[2.10.1, )"
+            },
             "Microsoft.AspNetCore.App": {
               "suppressParent": "All",
               "target": "Package",
@@ -59,6 +63,10 @@
               "target": "Package",
               "version": "[2.1.0, )",
               "autoReferenced": true
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[2.1.9, )"
             }
           },
           "imports": [

@@ -6,7 +6,7 @@
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
 
-<link rel="stylesheet" type="text/css" href="~/css/KimDat/Career - Copy.css">
+<link rel="stylesheet" type="text/css" href="~/css/KimDat/Career1.css">
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
@@ -26,6 +26,7 @@
                 <div class="tab-inner">
                     <button class="tablinks" onclick="openCity(event, 'sign-in')">Sign In</button>
                 </div>
+             
             </div>
 
             <div class="tabcontent" id="sign-up">
@@ -131,103 +132,64 @@
                                 </div>
                             </div>
                             <div class="item " id="2" style="margin-bottom:20px">
+
                                 <div id="booking">
-                                    <div class="row">
-                                        <fieldset class="booking-form">
+                                    
 
-                                            <legend class="form-header">
+                                        <div class="row">
 
-                                                School
-                                                <button type="button" class="btn btn-danger" >Remove</button>
-                                            </legend>
+                                            <fieldset class="booking-form">
 
-                                            <div class="row no-margin">
-                                                <div class="col-md-6">
-                                                    <div class="form-group separator">
-                                                        <span class="form-label">Name_school</span>
-                                                        <input class="form-control " type="text" name="[0].Name_school">
+                                                <legend class="form-header">
 
+                                                    School
+                                                  
+
+                                                </legend>
+                                               
+                                                <div class="row no-margin">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group separator">
+                                                            <span class="form-label">Name_school</span>
+                                                            <input class="form-control name_school" type="text"  name="[0].Name_school">
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <span class="form-label">Location</span>
+                                                            <input class="form-control location" type="text" name="[0].Location">
+
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <span class="form-label">Location</span>
-                                                        <input class="form-control" type="text" name="[0].Location">
+                                                <div class="row no-margin">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group separator">
+                                                            <span class="form-label">Join Date</span>
+                                                            <input type="text" name="[0].JoinDate" class="JoinDate hidden">
+                                                            <input class="form-control chooseJoin" type="date" min="1951-01-01" max="date" name="[0].chooseJoin">
 
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <span class="form-label">End Date</span>
+                                                            <input type="hidden" name="[0].EndDate" class="EndDate">
+                                                            <input class="chooseEnd form-control" type="date" name="[0].chooseEnd">
+
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="row no-margin">
-                                                <div class="col-md-6">
-                                                    <div class="form-group separator">
-                                                        <span class="form-label">Join Date</span>
-                                                        <input type="hidden" name="[0].JoinDate" class="JoinDate">
-                                                        <input class="form-control chooseJoin" type="date" min="1951-01-01" max="date" name="[0].chooseJoin">
+                                            </fieldset>
+                                        </div>
 
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <span class="form-label">End Date</span>
-                                                        <input type="hidden" name="[0].EndDate" class="EndDate">
-                                                        <input class="chooseEnd form-control" type="date" name="[0].chooseEnd">
 
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </fieldset>
-                                    </div>
-                                </div>
-                                <div id="booking">
-                                    <div class="row">
-                                        <fieldset class="booking-form">
-
-                                            <legend class="form-header">
-
-                                                School
-                                                <button type="button" class="btn btn-danger">Remove</button>
-                                            </legend>
-
-                                            <div class="row no-margin">
-                                                <div class="col-md-6">
-                                                    <div class="form-group separator">
-                                                        <span class="form-label">Name_school</span>
-                                                        <input class="form-control " type="text" name="[1].Name_school">
-
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <span class="form-label">Location</span>
-                                                        <input class="form-control" type="text" name="[1].Location">
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row no-margin">
-                                                <div class="col-md-6">
-                                                    <div class="form-group separator">
-                                                        <span class="form-label">Join Date</span>
-                                                        <input type="hidden" name="[1].JoinDate" class="JoinDate">
-                                                        <input class="form-control chooseJoin" type="date" min="1951-01-01" max="date" name="[1].chooseJoin">
-
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <span class="form-label">End Date</span>
-                                                        <input type="hidden" name="[1].EndDate" class="EndDate">
-                                                        <input class="chooseEnd form-control" type="date" name="[1].chooseEnd">
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </fieldset>
-                                    </div>
+                                  
                                 </div>
                                 <br />
-                                <div class="new">
-                                    <a onclick='newwin()' style="margin-left:20px;margin-top:20px"> + Add New School</a>
+                                <div class="new" onclick='newwin()'>
+                                    <a  style="margin-left:20px;margin-top:20px"> + Add New School</a>
                                 </div>
 
                             </div>
@@ -360,57 +322,6 @@
     document.getElementById("defaultOpen").click();
 </script>
 
-<script>
-    var droppedFiles = false;
-    var fileName = '';
-    var $dropzone = $('.dropzone');
-    var $button = $('.upload-btn');
-    var uploading = false;
-    var $syncing = $('.syncing');
-    var $done = $('.done');
-    var $bar = $('.bar');
-    var timeOut;
-
-    $dropzone.on('drag dragstart dragend dragover dragenter dragleave drop', function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-    })
-        .on('dragover dragenter', function () {
-            $dropzone.addClass('is-dragover');
-        })
-        .on('dragleave dragend drop', function () {
-            $dropzone.removeClass('is-dragover');
-        })
-        .on('drop', function (e) {
-            droppedFiles = e.originalEvent.dataTransfer.files;
-            fileName = droppedFiles[0]['name'];
-            $('.filename').html(fileName);
-            $('.dropzone .upload').hide();
-        });
-
-    $button.bind('click', function () {
-        startUpload();
-    });
-
-    $("input[name='file']").change(function () {
-        fileName = $(this)[0].files[0].name;
-        $('.filename').html(fileName);
-        $('.dropzone .upload').hide();
-    });
-
-    function startUpload() {
-        if (!uploading && fileName != '') {
-            uploading = true;
-            $button.html('Uploading...');
-            $dropzone.fadeOut();
-            $syncing.addClass('active');
-            $done.addClass('active');
-            $bar.addClass('active');
-            timeoutID = window.setTimeout(showDone, 3200);
-        }
-    }
-
-    function showDone() {
-        $button.html('Done');
-    }
+<script src="~/js/Kimdat/Education.js">
+    
 </script>
