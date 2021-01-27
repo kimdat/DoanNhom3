@@ -17,10 +17,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Aspose.Slides.NET" Version="21.1.0" />
+    <PackageReference Include="FreeSpire.XLS" Version="10.10.0" />
     <PackageReference Include="MailKit" Version="2.10.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />
+    <PackageReference Include="Syncfusion.DocIORenderer.Net.Core" Version="18.4.0.35" />
   </ItemGroup>
 
 </Project>

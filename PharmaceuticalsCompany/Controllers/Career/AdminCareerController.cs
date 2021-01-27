@@ -60,7 +60,7 @@ namespace PharmaceuticalsCompany.Controllers.Career
             message.From.Add(from);
 
             MailboxAddress to = new MailboxAddress(mail.ReceiveName,
-            "kimdat1307@gmail.com");
+           mail.To);
             message.Subject = mail.Subject;
 
             message.To.Add(to);

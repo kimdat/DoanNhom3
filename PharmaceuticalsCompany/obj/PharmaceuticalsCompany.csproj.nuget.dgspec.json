@@ -43,6 +43,14 @@
         "netcoreapp2.1": {
           "targetAlias": "netcoreapp2.1",
           "dependencies": {
+            "Aspose.Slides.NET": {
+              "target": "Package",
+              "version": "[21.1.0, )"
+            },
+            "FreeSpire.XLS": {
+              "target": "Package",
+              "version": "[10.10.0, )"
+            },
             "MailKit": {
               "target": "Package",
               "version": "[2.10.1, )"
@@ -67,6 +75,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[2.1.9, )"
+            },
+            "Syncfusion.DocIORenderer.Net.Core": {
+              "target": "Package",
+              "version": "[18.4.0.35, )"
             }
           },
           "imports": [

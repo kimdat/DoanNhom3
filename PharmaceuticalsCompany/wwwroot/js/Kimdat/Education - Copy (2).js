@@ -251,18 +251,25 @@ function newwin() {
     hiddenA2.classList.add("form-control");
     hiddenA2.classList.add("EndDate");
     hiddenA2.setAttribute("type", "hidden");
-    hiddenA2.setAttribute("name", "[" + a + "].EndDate");
     divFA2.append(hiddenA2);
     var inputA2 = document.createElement("input");
     inputA2.classList.add("form-control");
     inputA2.setAttribute("type", "date");
-    inputA2.setAttribute("name", "[" + a + "].ChooseEnd");
+    inputA2.setAttribute("name", "[" + a + "].EndDate");
     inputA2.addEventListener("change", mychangeEnd);
     divFA2.append(inputA2);
     divCA2.append(divFA2);
     divrA.append(divCA1);
     divrA.append(divCA2);
+    /*
+    var inputId = document.createElement("input");
+    inputId.classList.add("form-control");
+    inputId.setAttribute("type", "hidden");
 
+    inputId.setAttribute("name", "[" + a + "].id");
+
+    filedset.append(inputId);
+    */
     filedset.append(divrA);
     divP.append(filedset);
 
@@ -285,42 +292,28 @@ function remove() {
 
         $(this).attr("name", "[" + count + "].Name_school")
         count++;
-        
+
     });
     var count = 0;
     $('.location').each(function () {
 
         $(this).attr("name", "[" + count + "].Location")
         count++;
-    
+
     });
     var count = 0;
     $('.JoinDate').each(function () {
 
         $(this).attr("name", "[" + count + "].JoinDate")
         count++;
-       
+
     });
     var count = 0;
     $('.EndDate').each(function () {
 
         $(this).attr("name", "[" + count + "].EndDate")
         count++;
-     
-    });
-    var count = 0;
-    $('.chooseJoin').each(function () {
 
-        $(this).attr("name", "[" + count + "].chooseJoin")
-        count++;
-       
-    });
-    var count = 0;
-    $('.chooseEnd').each(function () {
-
-        $(this).attr("name", "[" + count + "].chooseEnd")
-        count++;
-       
     });
 }
 
@@ -418,7 +411,7 @@ $(document).ready(function () {
 
             $(this).attr("name", "[" + count + "].Name_school")
             count++;
-
+            alert($(this).attr("name");
         });
         var count = 0;
         $('.location').each(function () {
@@ -440,20 +433,6 @@ $(document).ready(function () {
             $(this).attr("name", "[" + count + "].EndDate")
             count++;
 
-        });
-        var count = 0;
-        $('.chooseJoin').each(function () {
-
-            $(this).attr("name", "[" + count + "].chooseJoin")
-            count++;
-          
-        });
-        var count = 0;
-        $('.chooseEnd').each(function () {
-
-            $(this).attr("name", "[" + count + "].chooseEnd")
-            count++;
-          
         });
 
     });

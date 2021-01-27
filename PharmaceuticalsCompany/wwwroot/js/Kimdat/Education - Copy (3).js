@@ -126,7 +126,7 @@ function newwin() {
         button.classList.add("remove");
         button.append("Remove");
         button.setAttribute("type", "button");
-        button.addEventListener("click", remove);
+        button.addEventListener("click",remove);
         $("#booking legend").append(button);
 
 
@@ -251,7 +251,6 @@ function newwin() {
     hiddenA2.classList.add("form-control");
     hiddenA2.classList.add("EndDate");
     hiddenA2.setAttribute("type", "hidden");
-    hiddenA2.setAttribute("name", "[" + a + "].EndDate");
     divFA2.append(hiddenA2);
     var inputA2 = document.createElement("input");
     inputA2.classList.add("form-control");
@@ -262,7 +261,7 @@ function newwin() {
     divCA2.append(divFA2);
     divrA.append(divCA1);
     divrA.append(divCA2);
-
+    
     filedset.append(divrA);
     divP.append(filedset);
 
@@ -272,7 +271,7 @@ function newwin() {
 }
 function remove() {
     var a = $(this).parent().parent();
-
+   
     a.remove();
     var last = $(".booking-form").length;
 
@@ -285,42 +284,42 @@ function remove() {
 
         $(this).attr("name", "[" + count + "].Name_school")
         count++;
-        
+     alert($(this).attr("name"));
     });
     var count = 0;
     $('.location').each(function () {
 
         $(this).attr("name", "[" + count + "].Location")
         count++;
-    
+        alert($(this).attr("name"));
     });
     var count = 0;
     $('.JoinDate').each(function () {
 
         $(this).attr("name", "[" + count + "].JoinDate")
         count++;
-       
+        alert($(this).attr("name"));
     });
     var count = 0;
     $('.EndDate').each(function () {
 
         $(this).attr("name", "[" + count + "].EndDate")
         count++;
-     
+        alert($(this).attr("name"));
     });
     var count = 0;
     $('.chooseJoin').each(function () {
 
         $(this).attr("name", "[" + count + "].chooseJoin")
         count++;
-       
+        alert($(this).attr("name"));
     });
     var count = 0;
     $('.chooseEnd').each(function () {
 
         $(this).attr("name", "[" + count + "].chooseEnd")
         count++;
-       
+        alert($(this).attr("name"));
     });
 }
 
@@ -418,7 +417,7 @@ $(document).ready(function () {
 
             $(this).attr("name", "[" + count + "].Name_school")
             count++;
-
+         
         });
         var count = 0;
         $('.location').each(function () {
@@ -446,14 +445,14 @@ $(document).ready(function () {
 
             $(this).attr("name", "[" + count + "].chooseJoin")
             count++;
-          
+            alert($(this).attr("name"));
         });
         var count = 0;
         $('.chooseEnd').each(function () {
 
             $(this).attr("name", "[" + count + "].chooseEnd")
             count++;
-          
+            alert($(this).attr("name"));
         });
 
     });

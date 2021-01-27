@@ -413,13 +413,13 @@
 
                 $(this).attr("name", "[" + count + "].Name_school")
                 count++;
-                alert($(this).attr("name");
+               
             });
             var count = 0;
             $('.location').each(function () {
 
                 $(this).attr("name", "[" + count + "].Location")
-                alert($(this).attr("name");
+             
                 count++;
                
             });
@@ -427,7 +427,7 @@
             $('.JoinDate').each(function () {
 
                 $(this).attr("name", "[" + count + "].JoinDate")
-                alert($(this).attr("name");
+             
                 count++;
                
             });
@@ -435,7 +435,7 @@
             $('.EndDate').each(function () {
 
                 $(this).attr("name", "[" + count + "].EndDate")
-                alert($(this).attr("name");
+               
                 count++;
               
             });

@@ -13,22 +13,22 @@
     <div class="container-contact2">
         <div class="wrap-contact2">
             <div class="tab">
-         
+
                 <div class="tab-inner">
                     <button class="tablinks" onclick="openCity(event, 'personal')" id="defaultOpen">PersonalDetail</button>
                 </div>
-           
-            
-            <div class="tab-inner">
 
-                <button class="tablinks" onclick="openCity(event, 'education')" id="tab2">EduacationDetail</button>
+
+                <div class="tab-inner">
+
+                    <button class="tablinks" onclick="openCity(event, 'education')" id="tab2">EduacationDetail</button>
+                </div>
+
+                <div class="tab-inner">
+                    <button class="tablinks" onclick="openCity(event, 'resume')" id="tab3">Resume</button>
+                </div>
+
             </div>
-        
-        <div class="tab-inner">
-            <button class="tablinks" onclick="openCity(event, 'resume')" id="tab3">Resume</button>
-        </div>
-      
-        </div>
             <div class="tabcontent" id="personal">
                 <form class="contact2-form validate-form" method="post" id="updatePersonal" asp-controller="Career" asp-action="EditProfile" enctype="multipart/form-data">
 
@@ -166,8 +166,8 @@
                 </form>
             </div>
             <div class="tabcontent" id="education">
-                <form class="" method="post" asp-controller="Career" asp-action="EditEducation">
-                    <input type="hidden" name="Id" value="@Model.Id" />
+                <form class="educationform" method="post" asp-controller="Career" asp-action="EditEducation">
+               
                     <div id="booking">
                         @for (int i = 0; i < ViewBag.Education.Count; i++)
                         {
@@ -185,7 +185,7 @@
                                         }
 
                                     </legend>
-                                 
+
                                     <div class="row no-margin">
                                         <div class="col-md-6">
                                             <div class="form-group separator">
@@ -206,7 +206,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group separator">
                                                 <span class="form-label">Join Date</span>
-                                                <input type="text" value="@ViewBag.Education[i].JoinDate" name="[@i].JoinDate" class="JoinDate hidden">
+                                                <input type="hidden" value="@ViewBag.Education[i].JoinDate" name="[@i].JoinDate" class="JoinDate">
                                                 <input class="form-control chooseJoin" type="date" min="1951-01-01" max="date" name="[@i].chooseJoin">
 
                                             </div>
@@ -813,4 +813,3 @@
 
 
 </script>
-   
