@@ -2,34 +2,25 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.1": {
-      "Aspose.Slides.NET/21.1.0": {
-        "type": "package",
-        "dependencies": {
-          "System.Drawing.Common": "4.5.0",
-          "System.Text.Encoding.CodePages": "4.4.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/Aspose.Slides.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Aspose.Slides.dll": {}
-        }
-      },
-      "FreeSpire.XLS/10.10.0": {
+      "FreeSpire.Office/4.3.1": {
         "type": "package",
         "dependencies": {
           "System.Drawing.Common": "4.5.0",
           "System.Text.Encoding.CodePages": "4.5.0"
         },
         "compile": {
-          "lib/netcoreapp2.0/Spire.License.dll": {},
-          "lib/netcoreapp2.0/Spire.Pdf.dll": {},
-          "lib/netcoreapp2.0/Spire.XLS.dll": {}
+          "lib/netstandard2.0/Spire.Doc.dll": {},
+          "lib/netstandard2.0/Spire.License.dll": {},
+          "lib/netstandard2.0/Spire.Pdf.dll": {},
+          "lib/netstandard2.0/Spire.Presentation.dll": {},
+          "lib/netstandard2.0/Spire.XLS.dll": {}
         },
         "runtime": {
-          "lib/netcoreapp2.0/Spire.License.dll": {},
-          "lib/netcoreapp2.0/Spire.Pdf.dll": {},
-          "lib/netcoreapp2.0/Spire.XLS.dll": {}
+          "lib/netstandard2.0/Spire.Doc.dll": {},
+          "lib/netstandard2.0/Spire.License.dll": {},
+          "lib/netstandard2.0/Spire.Pdf.dll": {},
+          "lib/netstandard2.0/Spire.Presentation.dll": {},
+          "lib/netstandard2.0/Spire.XLS.dll": {}
         }
       },
       "MailKit/2.10.1": {
@@ -4858,80 +4849,69 @@
     }
   },
   "libraries": {
-    "Aspose.Slides.NET/21.1.0": {
-      "sha512": "ZATJaZNSuOTA2Y9tqZRQ/8o+xU66eoDiWFhfdKHQHo7grzap65c0Aokl+x+luYjSqiswZuRjFMp4w/YjFxsmMA==",
+    "FreeSpire.Office/4.3.1": {
+      "sha512": "Zt8CoubJ7HFzZ9cKoowvAFSNCB/znUQ91rorM3uzkd7rqAZyKDpmuA5SiwbWypamAIQ2DVPvUV6tRoJNsApBKw==",
       "type": "package",
-      "path": "aspose.slides.net/21.1.0",
+      "path": "freespire.office/4.3.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "Aspose_End-User-License-Agreement.txt",
-        "Help/Aspose.Slides.chm",
-        "aspose.slides.net.21.1.0.nupkg.sha512",
-        "aspose.slides.net.nuspec",
-        "aspose_slides-for-net-min.png",
-        "lib/MonoAndroid9/Aspose.Slides.Droid.dll",
-        "lib/net2.0/Aspose.Slides.dll",
-        "lib/net2.0/Aspose.Slides.xml",
-        "lib/net3.5-client/Aspose.Slides.dll",
-        "lib/net3.5-client/Aspose.Slides.xml",
-        "lib/net4.0-client/Aspose.Slides.dll",
-        "lib/net4.0-client/Aspose.Slides.xml",
-        "lib/netstandard2.0/Aspose.Slides.dll",
-        "thirdpartylicenses.Aspose.Slides.for.NET.pdf"
-      ]
-    },
-    "FreeSpire.XLS/10.10.0": {
-      "sha512": "roJA19M8H29O5p9uah1x5UgruqYQsLpRHG5ncAkBM5akkJ4rRlyS8Ga5t4In0kXu+JMUX1hnY/EaHoEt9YphsQ==",
-      "type": "package",
-      "path": "freespire.xls/10.10.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "freespire.xls.10.10.0.nupkg.sha512",
-        "freespire.xls.nuspec",
-        "lib/MonoAndroid/Spire.License.dll",
-        "lib/MonoAndroid/Spire.License.xml",
-        "lib/MonoAndroid/Spire.Pdf.dll",
-        "lib/MonoAndroid/Spire.Pdf.xml",
-        "lib/MonoAndroid/Spire.XLS.dll",
-        "lib/MonoAndroid/Spire.XLS.xml",
+        "freespire.office.4.3.1.nupkg.sha512",
+        "freespire.office.nuspec",
+        "lib/net20/Spire.Barcode.dll",
+        "lib/net20/Spire.Barcode.xml",
+        "lib/net20/Spire.Common.dll",
+        "lib/net20/Spire.Common.xml",
+        "lib/net20/Spire.DataExport.ResourceMgr.dll",
+        "lib/net20/Spire.DataExport.ResourceMgr.xml",
+        "lib/net20/Spire.DataExport.dll",
+        "lib/net20/Spire.DataExport.xml",
+        "lib/net20/Spire.Doc.XML",
+        "lib/net20/Spire.Doc.dll",
+        "lib/net20/Spire.DocViewer.Forms.dll",
+        "lib/net20/Spire.DocViewer.Forms.xml",
         "lib/net20/Spire.License.dll",
         "lib/net20/Spire.License.xml",
+        "lib/net20/Spire.Pdf.XML",
         "lib/net20/Spire.Pdf.dll",
-        "lib/net20/Spire.Pdf.xml",
+        "lib/net20/Spire.PdfViewer.Forms.dll",
+        "lib/net20/Spire.PdfViewer.Forms.xml",
+        "lib/net20/Spire.Presentation.dll",
+        "lib/net20/Spire.Presentation.xml",
+        "lib/net20/Spire.XLS.XML",
         "lib/net20/Spire.XLS.dll",
-        "lib/net20/Spire.XLS.xml",
+        "lib/net40/Spire.Barcode.dll",
+        "lib/net40/Spire.Barcode.xml",
+        "lib/net40/Spire.Common.dll",
+        "lib/net40/Spire.Common.xml",
+        "lib/net40/Spire.DataExport.ResourceMgr.dll",
+        "lib/net40/Spire.DataExport.ResourceMgr.xml",
+        "lib/net40/Spire.DataExport.dll",
+        "lib/net40/Spire.DataExport.xml",
+        "lib/net40/Spire.Doc.XML",
+        "lib/net40/Spire.Doc.dll",
+        "lib/net40/Spire.DocViewer.Forms.dll",
+        "lib/net40/Spire.DocViewer.Forms.xml",
         "lib/net40/Spire.License.dll",
         "lib/net40/Spire.License.xml",
+        "lib/net40/Spire.Pdf.XML",
         "lib/net40/Spire.Pdf.dll",
-        "lib/net40/Spire.Pdf.xml",
+        "lib/net40/Spire.PdfViewer.Forms.dll",
+        "lib/net40/Spire.PdfViewer.Forms.xml",
+        "lib/net40/Spire.Presentation.dll",
+        "lib/net40/Spire.Presentation.xml",
+        "lib/net40/Spire.XLS.XML",
         "lib/net40/Spire.XLS.dll",
-        "lib/net40/Spire.XLS.xml",
-        "lib/netcoreapp2.0/Spire.License.dll",
-        "lib/netcoreapp2.0/Spire.License.xml",
-        "lib/netcoreapp2.0/Spire.Pdf.dll",
-        "lib/netcoreapp2.0/Spire.Pdf.xml",
-        "lib/netcoreapp2.0/Spire.XLS.dll",
-        "lib/netcoreapp2.0/Spire.XLS.xml",
-        "lib/netcoreapp3.0/Spire.License.dll",
-        "lib/netcoreapp3.0/Spire.License.xml",
-        "lib/netcoreapp3.0/Spire.Pdf.dll",
-        "lib/netcoreapp3.0/Spire.Pdf.xml",
-        "lib/netcoreapp3.0/Spire.XLS.dll",
-        "lib/netcoreapp3.0/Spire.XLS.xml",
+        "lib/netstandard2.0/Spire.Doc.dll",
+        "lib/netstandard2.0/Spire.Doc.xml",
         "lib/netstandard2.0/Spire.License.dll",
         "lib/netstandard2.0/Spire.License.xml",
         "lib/netstandard2.0/Spire.Pdf.dll",
         "lib/netstandard2.0/Spire.Pdf.xml",
+        "lib/netstandard2.0/Spire.Presentation.dll",
+        "lib/netstandard2.0/Spire.Presentation.xml",
         "lib/netstandard2.0/Spire.XLS.dll",
         "lib/netstandard2.0/Spire.XLS.xml",
-        "lib/xamarinios/Spire.License.dll",
-        "lib/xamarinios/Spire.License.xml",
-        "lib/xamarinios/Spire.Pdf.dll",
-        "lib/xamarinios/Spire.Pdf.xml",
-        "lib/xamarinios/Spire.XLS.dll",
-        "lib/xamarinios/Spire.XLS.xml",
         "license.txt"
       ]
     },
@@ -13259,8 +13239,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
-      "Aspose.Slides.NET >= 21.1.0",
-      "FreeSpire.XLS >= 10.10.0",
+      "FreeSpire.Office >= 4.3.1",
       "MailKit >= 2.10.1",
       "Microsoft.AspNetCore.App >= 2.1.1",
       "Microsoft.AspNetCore.Razor.Design >= 2.1.2",
@@ -13276,11 +13255,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Fptaptech\\DoanB\\DoanNhom3\\PharmaceuticalsCompany\\PharmaceuticalsCompany.csproj",
+      "projectUniqueName": "C:\\Fptaptech\\DoanB\\DoanNhom327012021\\PharmaceuticalsCompany\\PharmaceuticalsCompany.csproj",
       "projectName": "PharmaceuticalsCompany",
-      "projectPath": "C:\\Fptaptech\\DoanB\\DoanNhom3\\PharmaceuticalsCompany\\PharmaceuticalsCompany.csproj",
+      "projectPath": "C:\\Fptaptech\\DoanB\\DoanNhom327012021\\PharmaceuticalsCompany\\PharmaceuticalsCompany.csproj",
       "packagesPath": "C:\\Users\\nghia\\.nuget\\packages\\",
-      "outputPath": "C:\\Fptaptech\\DoanB\\DoanNhom3\\PharmaceuticalsCompany\\obj\\",
+      "outputPath": "C:\\Fptaptech\\DoanB\\DoanNhom327012021\\PharmaceuticalsCompany\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -13312,13 +13291,9 @@
       "netcoreapp2.1": {
         "targetAlias": "netcoreapp2.1",
         "dependencies": {
-          "Aspose.Slides.NET": {
+          "FreeSpire.Office": {
             "target": "Package",
-            "version": "[21.1.0, )"
-          },
-          "FreeSpire.XLS": {
-            "target": "Package",
-            "version": "[10.10.0, )"
+            "version": "[4.3.1, )"
           },
           "MailKit": {
             "target": "Package",

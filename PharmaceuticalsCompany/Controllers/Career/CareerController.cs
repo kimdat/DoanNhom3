@@ -9,13 +9,10 @@ using PharmaceuticalsCompany.Models.Career;
 using Microsoft.AspNetCore.Http;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
-using Syncfusion.DocIO.DLS;
-using Syncfusion.DocIORenderer;
-using Syncfusion.OfficeChart;
-using Syncfusion.Pdf;
-using Spire.Xls;
 
-using Aspose.Slides;
+using Spire.Doc;
+using Spire.Presentation;
+using Spire.Xls;
 
 namespace PharmaceuticalsCompany.Controllers.Candidate
 {
@@ -102,90 +99,70 @@ namespace PharmaceuticalsCompany.Controllers.Candidate
               career.Gender = false;
 
 
-            string filePath = "";
+         
 
             if (file != null && file.Length > 0)
             {
 
-                filePath = $"{_hostingEnvironment.WebRootPath}\\files\\{file.FileName}";
 
-                using (FileStream fileStream = System.IO.File.Create(filePath))
+                string filePath = $"{_hostingEnvironment.WebRootPath}\\files\\{file.FileName}";
+                string fileName = file.FileName;
+                if (fileName.Split(".").Last() == "pdf")
                 {
-                    file.CopyTo(fileStream);
-                    fileStream.Flush();
-                    career.Resume = file.FileName;
-                    fileStream.Close();
-                }
-
-                if (career.Resume.Split(".").Last() == "docx" || career.Resume.Split(".").Last() == "doc" || career.Resume.Split(".").Last() == "docm" || career.Resume.Split(".").Last() == "dot" || career.Resume.Split(".").Last() == "dotx")
-                {
-                    FileStream docStream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
-                    //Loads file stream into Word document
-
-                    WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
-                    //Instantiation of DocIORenderer for Word to PDF conversion
-                    DocIORenderer render = new DocIORenderer();
-                    //Sets Chart rendering Options.
-                    render.Settings.ChartRenderingOptions.ImageFormat = ExportImageFormat.Jpeg;
-                    //Converts Word document into PDF document
-                    PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
-                    //Releases all resources used by the Word document and DocIO Renderer objects
-                    render.Dispose();
-                    wordDocument.Dispose();
-                    docStream.Close();
-                    System.IO.File.Delete(filePath);
-
-                    //Saves the PDF file
-                    // MemoryStream outputStream = new MemoryStream();
-                    // pdfDocument.Save(outputStream);
-                    //Closes the instance of PDF document object
-                    //   pdfDocument.Close();
-
-                    string newfile = "";
-                    string extentionFile = file.FileName.Split(".").Last();
-                    int indexextensionFile = file.FileName.LastIndexOf(extentionFile);
-                    newfile = file.FileName.Substring(0, indexextensionFile);
-                    newfile = newfile + "pdf";
-                    string newfilePath = $"{_hostingEnvironment.WebRootPath}\\files\\{newfile}";
-                    using (var fs = new FileStream(newfilePath, FileMode.Create, FileAccess.Write))
+                    using (FileStream fileStream = System.IO.File.Create(filePath))
                     {
-                        fs.Flush();
-                        pdfDocument.Save(fs);
-                        career.Resume = newfile;
+                        file.CopyTo(fileStream);
+                        career.Resume = fileName;
+                        fileStream.Flush();
+                        fileStream.Close();
                     }
-
                 }
-                else if (career.Resume.Split(".").Last() == "ppt" || career.Resume.Split(".").Last() == "pptx" || career.Resume.Split(".").Last() == "pptm")
-                {
-                    Presentation presentation = new Presentation(filePath);
-
-                    System.IO.File.Delete(filePath);
-
-                    string newfile = "";
-                    string extentionFile = file.FileName.Split(".").Last();
-                    int indexextensionFile = file.FileName.LastIndexOf(extentionFile);
-                    newfile = file.FileName.Substring(0, indexextensionFile);
-                    newfile = newfile + "pdf";
-                    string newfilePath = $"{_hostingEnvironment.WebRootPath}\\files\\{newfile}";
-                    presentation.Save(newfilePath, Aspose.Slides.Export.SaveFormat.Pdf);
-                    career.Resume = newfile;
-                }
-
                 else
                 {
-                    Workbook workbook = new Workbook();
-                    workbook.LoadFromFile(filePath);
-                    System.IO.File.Delete(filePath);
-
-                    string newfile = "";
                     string extentionFile = file.FileName.Split(".").Last();
                     int indexextensionFile = file.FileName.LastIndexOf(extentionFile);
-                    newfile = file.FileName.Substring(0, indexextensionFile);
-                    newfile = newfile + "pdf";
-                    string newfileath = $"{_hostingEnvironment.WebRootPath}\\files\\{newfile}";
-                    Worksheet sheet = workbook.Worksheets[0];
-                    sheet.SaveToPdf(newfileath);
-                    career.Resume = newfile;
+                    fileName = file.FileName.Substring(0, indexextensionFile);
+                    fileName = fileName + "pdf";
+                    filePath = $"{_hostingEnvironment.WebRootPath}\\files\\{fileName}";
+                    using (FileStream fileStream = System.IO.File.Create(filePath))
+                    {
+                        file.CopyTo(fileStream);
+                        career.Resume = fileName;
+                        fileStream.Flush();
+                        fileStream.Close();
+                    }
+
+                    if (file.FileName.Split(".").Last() == "docx" || file.FileName.Split(".").Last() == "doc" || file.FileName.Split(".").Last() == "docm" || file.FileName.Split(".").Last() == "dot" || file.FileName.Split(".").Last() == "dotx")
+                    {
+
+
+                        Document document = new Document();
+
+                        document.LoadFromFile(filePath);
+
+                        document.SaveToFile(filePath, Spire.Doc.FileFormat.PDF);
+
+
+
+                    }
+
+                    else if (file.FileName.Split(".").Last() == "ppt" || file.FileName.Split(".").Last() == "pptx" || file.FileName.Split(".").Last() == "pptm")
+                    {
+                        Presentation presentation = new Presentation();
+                        presentation.LoadFromFile(filePath);
+                        presentation.SaveToFile(filePath, Spire.Presentation.FileFormat.PDF);
+
+                    }
+
+                    else
+                    {
+                        Workbook workbook = new Workbook();
+                        workbook.LoadFromFile(filePath);
+                        Worksheet sheet = workbook.Worksheets[0];
+
+                        sheet.SaveToPdf(filePath);
+
+                    }
 
                 }
 
@@ -235,111 +212,77 @@ namespace PharmaceuticalsCompany.Controllers.Candidate
         [HttpPost]
         public async Task<IActionResult> EditResume(CareerModel career, IFormFile file, [FromServices] IHostingEnvironment hostingEnvironment)
         {
-           
-            string filePath= "";
-
+            //  string  filePath = $"{_hostingEnvironment.WebRootPath}\\files\\{file.FileName}";
             if (file != null && file.Length > 0)
             {
-                
-                filePath = $"{_hostingEnvironment.WebRootPath}\\files\\{file.FileName}";
-               
-                using (FileStream fileStream = System.IO.File.Create(filePath))
+
+                string filePath = $"{_hostingEnvironment.WebRootPath}\\files\\{file.FileName}";
+                string fileName = file.FileName;
+                if (fileName.Split(".").Last() == "pdf")
                 {
-                    file.CopyTo(fileStream);
-                    fileStream.Flush();
-                    career.Resume = file.FileName;
-                    fileStream.Close();
-                }
-
-               if(career.Resume.Split(".").Last()=="docx" || career.Resume.Split(".").Last()=="doc" || career.Resume.Split(".").Last()== "docm" || career.Resume.Split(".").Last()=="dot" || career.Resume.Split(".").Last()=="dotx")
-               {
-                    FileStream docStream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
-                    //Loads file stream into Word document
-
-                    WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
-                    //Instantiation of DocIORenderer for Word to PDF conversion
-                    DocIORenderer render = new DocIORenderer();
-                    //Sets Chart rendering Options.
-                    render.Settings.ChartRenderingOptions.ImageFormat = ExportImageFormat.Jpeg;
-                    //Converts Word document into PDF document
-                   PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
-                    //Releases all resources used by the Word document and DocIO Renderer objects
-                    render.Dispose();
-                    wordDocument.Dispose();
-                    docStream.Close();
-                    System.IO.File.Delete(filePath);
-
-                    //Saves the PDF file
-                    // MemoryStream outputStream = new MemoryStream();
-                    // pdfDocument.Save(outputStream);
-                    //Closes the instance of PDF document object
-                    //   pdfDocument.Close();
-
-                    string newfile = "";
-                    string extentionFile = file.FileName.Split(".").Last();
-                    int indexextensionFile = file.FileName.LastIndexOf(extentionFile);
-                    newfile = file.FileName.Substring(0, indexextensionFile);
-                    newfile = newfile + "pdf";
-                    string newfilePath = $"{_hostingEnvironment.WebRootPath}\\files\\{newfile}";
-                    using (var fs = new FileStream(newfilePath, FileMode.Create, FileAccess.Write))
+                    using (FileStream fileStream = System.IO.File.Create(filePath))
                     {
-                        fs.Flush();
-                        pdfDocument.Save(fs);
-                        career.Resume = newfile;
+                        file.CopyTo(fileStream);
+                        career.Resume = fileName;
+                        fileStream.Flush();
+                        fileStream.Close();
                     }
-
-               }
-                else if (career.Resume.Split(".").Last() == "ppt" || career.Resume.Split(".").Last() == "pptx"||career.Resume.Split(".").Last() == "pptm")
+                }
+                else
                 {
-                    Presentation presentation = new Presentation(filePath);
-                   
-                    System.IO.File.Delete(filePath);
-
-                    string newfile = "";
                     string extentionFile = file.FileName.Split(".").Last();
                     int indexextensionFile = file.FileName.LastIndexOf(extentionFile);
-                    newfile = file.FileName.Substring(0, indexextensionFile);
-                    newfile = newfile + "pdf";
-                    string newfilePath = $"{_hostingEnvironment.WebRootPath}\\files\\{newfile}";
-                    presentation.Save(newfilePath, Aspose.Slides.Export.SaveFormat.Pdf);
-                    career.Resume = newfile;
-                }
+                    fileName = file.FileName.Substring(0, indexextensionFile);
+                    fileName = fileName + "pdf";
+                    filePath = $"{_hostingEnvironment.WebRootPath}\\files\\{fileName}";
+                    using (FileStream fileStream = System.IO.File.Create(filePath))
+                    {
+                        file.CopyTo(fileStream);
+                        career.Resume = fileName;
+                        fileStream.Flush();
+                        fileStream.Close();
+                    }
+                    
+                    if (file.FileName.Split(".").Last() == "docx" || file.FileName.Split(".").Last() == "doc" || file.FileName.Split(".").Last() == "docm" || file.FileName.Split(".").Last() == "dot" || file.FileName.Split(".").Last() == "dotx")
+                    {
 
-               else
-                {
-                    Workbook workbook = new Workbook();
-                    workbook.LoadFromFile(filePath);
-                    System.IO.File.Delete(filePath);
+                        
+                        Document document = new Document();
+                      
+                        document.LoadFromFile(filePath);
+                      
+                        document.SaveToFile(filePath, Spire.Doc.FileFormat.PDF);
 
-                    string newfile = "";
-                    string extentionFile = file.FileName.Split(".").Last();
-                    int indexextensionFile = file.FileName.LastIndexOf(extentionFile);
-                    newfile = file.FileName.Substring(0, indexextensionFile);
-                    newfile = newfile + "pdf";
-                    string newfileath = $"{_hostingEnvironment.WebRootPath}\\files\\{newfile}";
-                    Worksheet sheet = workbook.Worksheets[0];
-                    sheet.SaveToPdf(newfileath);
-                    career.Resume = newfile;
+
+
+                    }
                    
+                  else  if (file.FileName.Split(".").Last() == "ppt" || file.FileName.Split(".").Last() == "pptx" || file.FileName.Split(".").Last() == "pptm")
+                    {
+                        Presentation presentation = new Presentation();
+                        presentation.LoadFromFile(filePath);
+                        presentation.SaveToFile(filePath, Spire.Presentation.FileFormat.PDF);
+
+                    }
+                 
+                    else
+                    {
+                        Workbook workbook = new Workbook();
+                        workbook.LoadFromFile(filePath);
+                        Worksheet sheet = workbook.Worksheets[0];
+
+                        sheet.SaveToPdf(filePath);
+
+                    }
+                  
                 }
+
+
+
 
             }
 
-
-
-
-
-            /*
-            if (file!=null && file.Length > 0)
-            {
-                string fileName = $"{_hostingEnvironment.WebRootPath}\\files\\{file.FileName}";
-                using (FileStream fileStream = System.IO.File.Create(fileName))
-                {
-                    file.CopyTo(fileStream);
-                    fileStream.Flush();
-                   career.Resume = file.FileName;
-                }
-            }*/
+            
             var edit_carrer = await services.EditResume(career);
             if (edit_carrer != null)
             {

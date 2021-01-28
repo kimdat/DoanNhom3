@@ -17,8 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aspose.Slides.NET" Version="21.1.0" />
-    <PackageReference Include="FreeSpire.XLS" Version="10.10.0" />
+    <PackageReference Include="FreeSpire.Office" Version="4.3.1" />
     <PackageReference Include="MailKit" Version="2.10.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />

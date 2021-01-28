@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Fptaptech\\DoanB\\DoanNhom3\\PharmaceuticalsCompany\\PharmaceuticalsCompany.csproj": {}
+    "C:\\Fptaptech\\DoanB\\DoanNhom327012021\\PharmaceuticalsCompany\\PharmaceuticalsCompany.csproj": {}
   },
   "projects": {
-    "C:\\Fptaptech\\DoanB\\DoanNhom3\\PharmaceuticalsCompany\\PharmaceuticalsCompany.csproj": {
+    "C:\\Fptaptech\\DoanB\\DoanNhom327012021\\PharmaceuticalsCompany\\PharmaceuticalsCompany.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Fptaptech\\DoanB\\DoanNhom3\\PharmaceuticalsCompany\\PharmaceuticalsCompany.csproj",
+        "projectUniqueName": "C:\\Fptaptech\\DoanB\\DoanNhom327012021\\PharmaceuticalsCompany\\PharmaceuticalsCompany.csproj",
         "projectName": "PharmaceuticalsCompany",
-        "projectPath": "C:\\Fptaptech\\DoanB\\DoanNhom3\\PharmaceuticalsCompany\\PharmaceuticalsCompany.csproj",
+        "projectPath": "C:\\Fptaptech\\DoanB\\DoanNhom327012021\\PharmaceuticalsCompany\\PharmaceuticalsCompany.csproj",
         "packagesPath": "C:\\Users\\nghia\\.nuget\\packages\\",
-        "outputPath": "C:\\Fptaptech\\DoanB\\DoanNhom3\\PharmaceuticalsCompany\\obj\\",
+        "outputPath": "C:\\Fptaptech\\DoanB\\DoanNhom327012021\\PharmaceuticalsCompany\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -43,13 +43,9 @@
         "netcoreapp2.1": {
           "targetAlias": "netcoreapp2.1",
           "dependencies": {
-            "Aspose.Slides.NET": {
+            "FreeSpire.Office": {
               "target": "Package",
-              "version": "[21.1.0, )"
-            },
-            "FreeSpire.XLS": {
-              "target": "Package",
-              "version": "[10.10.0, )"
+              "version": "[4.3.1, )"
             },
             "MailKit": {
               "target": "Package",

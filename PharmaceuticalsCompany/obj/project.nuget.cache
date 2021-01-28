@@ -1,11 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "8TOZXca6ERf0QFN5S1l4hv62Tpb7JVVDIRgH67A6M0mwHCAJXCH5Ri/J1dYdNQCXnkwZn+CXv8pEif06Ge7Wgg==",
+  "dgSpecHash": "NineO9yirWgVUyGOhTZS+mzUxJ1LXD/FwFxa62YsQZm62Nq15q85muGfxREmpNvgs/c6cZkpQDeepbjYP2rAVw==",
   "success": true,
-  "projectFilePath": "C:\\Fptaptech\\DoanB\\DoanNhom3\\PharmaceuticalsCompany\\PharmaceuticalsCompany.csproj",
+  "projectFilePath": "C:\\Fptaptech\\DoanB\\DoanNhom327012021\\PharmaceuticalsCompany\\PharmaceuticalsCompany.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\nghia\\.nuget\\packages\\aspose.slides.net\\21.1.0\\aspose.slides.net.21.1.0.nupkg.sha512",
-    "C:\\Users\\nghia\\.nuget\\packages\\freespire.xls\\10.10.0\\freespire.xls.10.10.0.nupkg.sha512",
+    "C:\\Users\\nghia\\.nuget\\packages\\freespire.office\\4.3.1\\freespire.office.4.3.1.nupkg.sha512",
     "C:\\Users\\nghia\\.nuget\\packages\\mailkit\\2.10.1\\mailkit.2.10.1.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnet.webapi.client\\5.2.6\\microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore\\2.1.1\\microsoft.aspnetcore.2.1.1.nupkg.sha512",
